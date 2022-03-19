@@ -3,6 +3,12 @@ package com.example.idpaproject1.other;
 import org.w3c.dom.*;
 import org.w3c.dom.traversal.TreeWalker;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static java.lang.Math.min;
+
 public class NiermanJagadishAlgorithm {
 
 
@@ -93,116 +99,70 @@ public class NiermanJagadishAlgorithm {
 
     }
 
-    public Node getChild(Node node, int height) {
-
-        Node childNode = node.getFirstChild();
-
-        return childNode;
-    }
-
-    public Node getSibling(Node node, int height) {
-        Node siblingNode = node.getNextSibling();
 
 
-        return siblingNode;
-    }
+    public boolean isContainedIn(Node testNode, ArrayList<Node[]> subtreesListDoc1) {
+        boolean isContained = true;
 
-    public void getSubtrees(Node rootNode, int height) {
-
-        if (height == 1) {
-            return;
-        }
-
-        int tempHeight = height;
-        Node firstChild = rootNode.getFirstChild();
-
-        while (tempHeight != 1)
-
-            if (firstChild.hasChildNodes()) {
-
-                Node child = getChild(firstChild, tempHeight - 1);
+            NodeList nodeList = testNode.getChildNodes();
+            Node[] arrayOfNodes = new Node[nodeList.getLength() + 1];
+            arrayOfNodes[0] = testNode;
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                arrayOfNodes[i + 1] = nodeList.item(i);
 
             }
 
 
-    }
+            for (int i = 0; i < subtreesListDoc1.size(); i++) {
+
+                  for (int j = 0; j< min(subtreesListDoc1.get(i).length, arrayOfNodes.length); j++) {
+
+                      if (!String.valueOf(arrayOfNodes[j]).equals(String.valueOf(subtreesListDoc1.get(i)[j]))) {
+                          isContained = false;
+                          break;
+                      }
+                  }
+
+                  isContained = true;
+
+            }
+
+            return isContained;
+
+        }
 
 
-    public void isContainedIn(boolean containedIn, Node node, Document document, TreeWalker treeWalker) {
 
 
 
 
+
+
+
+    public void getSubtrees(Document document, ArrayList<Node[]> subtreesList, TreeWalker treeWalker) {
 
         Node parent = treeWalker.getCurrentNode();
 
-
-
         for (Node n = treeWalker.firstChild(); n != null; n = treeWalker.nextSibling()) {
-            if (!n.isEqualNode(node)) {
-                containedIn = true;
 
-                break;
-
+            NodeList nodeList = n.getChildNodes();
+            Node[] arrayOfNodes = new Node[nodeList.getLength()+1];
+            arrayOfNodes[0] = n;
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                arrayOfNodes[i+1] = nodeList.item(i);
             }
-
-
-                isContainedIn(containedIn, node, document, treeWalker);
-
-
-            }
-
-
-            treeWalker.setCurrentNode(parent);
+             subtreesList.add(arrayOfNodes);
+           getSubtrees(document, subtreesList, treeWalker);
         }
+        treeWalker.setCurrentNode(parent);
+
 
 
     }
+}
 
 
-    /* public ArrayList<Document> getSubtrees(ArrayList<Document> subtrees, Document document, Node rootNode, int height) throws ParserConfigurationException {
 
-
-        if (height == 2)
-        {
-            return subtrees;
-        }
-
-        else {
-
-            // get the first child of the root Node
-            Node childNode = rootNode.getFirstChild();
-
-            Document doc = null;
-            while (childNode != null) {
-                DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-                DocumentBuilder builder = dbf.newDocumentBuilder();
-                doc = builder.newDocument();
-
-
-                doc.importNode(rootNode, true);
-                Element element = doc.createElement(rootNode.getNodeName());
-                System.out.println(doc);
-                System.out.println(element);
-                NodeList children = childNode.getChildNodes();
-
-
-                for (int i = 0; i < children.getLength(); i++) {
-
-                    element.appendChild(doc.importNode(children.item(i).cloneNode(true), true));
-
-                }
-
-                subtrees.add(doc);
-
-                childNode = childNode.getNextSibling();
-
-            }
-            return getSubtrees(subtrees, doc, childNode, height-1);
-            }
-
-
-    } */
 
 
 
