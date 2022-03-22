@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class TestParser {
     public static void main(String[] args) throws ParserConfigurationException {
-
+        //
         NiermanJagadishAlgorithm nandj = new NiermanJagadishAlgorithm();
         Document doc = nandj.parseXML("src/SampleDoc1 (original) Refined.xml");
 
@@ -33,7 +33,7 @@ public class TestParser {
 
                 System.out.println();
         ArrayList<Node[]> arrayList = new ArrayList<>();
-                arrayList = nandj.getSubtrees(doc, arrayList, treeWalker);
+        arrayList = nandj.getSubtrees(doc2, arrayList, treeWalker);
         int count = 0;
         for (int i = 0; i < arrayList.size(); i++) {
             Node[] array = arrayList.get(i);
@@ -49,19 +49,24 @@ public class TestParser {
             count++;
         }
         System.out.println(count);
-        System.out.println(nandj.isContainedIn(doc2.getDocumentElement().getChildNodes().item(1), arrayList));
-        System.out.println(nandj.getCost(doc2.getDocumentElement().getChildNodes().item(1), doc ));
-        System.out.println(nandj.getDegree(doc2.getDocumentElement(), doc2));
+      //  System.out.println(nandj.isContainedIn(doc2.getDocumentElement().getChildNodes().item(1), arrayList));
+        // System.out.println(nandj.getCost(doc2.getDocumentElement().getChildNodes().item(1), doc ));
+      //  System.out.println(nandj.getDegree(doc2.getDocumentElement(), doc2));
 
 
-        ArrayList<Node> nodes = nandj.getLevelSubtrees(doc.getDocumentElement(), doc);
-        for (int i = 0; i < nodes.size(); i++) {
-            System.out.println(nodes.get(i));
-        }
-
-        System.out.println(nandj.NiermanJagadishExecute(doc.getDocumentElement(), doc2.getDocumentElement(), doc, doc2));
+     //   ArrayList<Node> nodes = nandj.getLevelSubtrees(doc.getDocumentElement(), doc);
+       // for (int i = 0; i < nodes.size(); i++) {
+         //   System.out.println(nodes.get(i));
+       // }
 
 
+        StringBuilder stringBuilder = new StringBuilder();
+        Object[] TED  =(nandj.NiermanJagadishExecute(doc.getDocumentElement(), doc2.getDocumentElement(), doc, doc2));
+        System.out.print("Edit distance = " + TED[0] + "\n" + "Edit Script = " + TED[1]);
+
+      //  System.out.println(nandj.isContainedIn(doc.getDocumentElement().getFirstChild().getNextSibling(), arrayList));
+      //  System.out.println(doc.getDocumentElement().getFirstChild().getNextSibling());
+      //  System.out.println(nandj.getCost(doc.getDocumentElement().getFirstChild().getNextSibling(), doc2));
     }
 
 

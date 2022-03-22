@@ -75,7 +75,8 @@ public class NiermanJagadishAlgorithm {
 
     }
 
-    public int NiermanJagadishExecute(Node nodeA, Node nodeB, Document documentA, Document documentB) {
+    StringBuilder stringBuilder = new StringBuilder("");
+    public Object[] NiermanJagadishExecute(Node nodeA, Node nodeB, Document documentA, Document documentB) {
 
         Node parentNodeA = nodeA;
         Node parentNodeB = nodeB;
@@ -84,7 +85,6 @@ public class NiermanJagadishAlgorithm {
 
         int[][] editDistanceMatrix = new int[degreeA+1][degreeB+1];
         editDistanceMatrix[0][0] = costUpdate(parentNodeA, parentNodeB);
-
 
         ArrayList<Node> levelSubtreesArrayA = getLevelSubtrees(parentNodeA, documentA);
         ArrayList<Node> levelSubtreesArrayB = getLevelSubtrees(parentNodeB, documentB);
@@ -100,36 +100,38 @@ public class NiermanJagadishAlgorithm {
 
         for (int j = 1; j <= degreeB; j++) {
 
-
             editDistanceMatrix[0][j] = editDistanceMatrix[0][j-1] + getCost(levelSubtreesArrayB.get(j-1), documentA);
         }
 
+        stringBuilder = new StringBuilder("");
         for (int i = 1; i <= degreeA; i++) {
             for (int j = 1; j <= degreeB; j++) {
-                editDistanceMatrix[i][j] = min(
-                        min(editDistanceMatrix[i-1][j-1] + NiermanJagadishExecute(levelSubtreesArrayA.get(i-1), levelSubtreesArrayB.get(j-1), documentA, documentB),
-                                editDistanceMatrix[i-1][j]+ getCost(levelSubtreesArrayA.get(i-1), documentB)),
-                                editDistanceMatrix[i][j-1] + getCost(levelSubtreesArrayB.get(j-1), documentA));
-            }
+                
+
+                int update = editDistanceMatrix[i-1][j-1] + (int) NiermanJagadishExecute(levelSubtreesArrayA.get(i-1), levelSubtreesArrayB.get(j-1), documentA, documentB)[0];
+                int delete = editDistanceMatrix[i-1][j]+ getCost(levelSubtreesArrayA.get(i-1), documentB);
+                int insert = editDistanceMatrix[i][j-1] + getCost(levelSubtreesArrayB.get(j-1), documentA);
+
+                editDistanceMatrix[i][j] = min(update, min(delete, insert));
+
+                String minOperation = getMinimumOperation(editDistanceMatrix[i][j], update, delete, insert, levelSubtreesArrayA.get(i-1), levelSubtreesArrayB.get(j-1));
+
+                if (editDistanceMatrix[i][j] != 0) {
+                    stringBuilder.append(minOperation + " ");
+                }
+                }
         }
-
-
-        return editDistanceMatrix[degreeA][degreeB];
-
+        return new Object[]{editDistanceMatrix[degreeA][degreeB], stringBuilder};
     }
 
 
     public int costUpdate(Node nodeA, Node nodeB) {
-
         if (String.valueOf(nodeA).equals(String.valueOf(nodeB))) return 0;
-
         else return 1;
-
     }
 
-
     public boolean isContainedIn(Node testNode, ArrayList<Node[]> subtreesListDoc1) {
-        boolean isContained = true;
+        boolean isContained = false;
 
         NodeList nodeList = testNode.getChildNodes();
         Node[] arrayOfNodes = new Node[nodeList.getLength() + 1];
@@ -137,17 +139,23 @@ public class NiermanJagadishAlgorithm {
         for (int i = 0; i < nodeList.getLength(); i++) {
             arrayOfNodes[i + 1] = nodeList.item(i);
 
+
         }
 
 
         for (int i = 0; i < subtreesListDoc1.size(); i++) {
 
+
             for (int j = 0; j < min(subtreesListDoc1.get(i).length, arrayOfNodes.length); j++) {
 
+                if (j == min(subtreesListDoc1.get(i).length, arrayOfNodes.length) - 1) return true;
+
                 if (!String.valueOf(arrayOfNodes[j]).equals(String.valueOf(subtreesListDoc1.get(i)[j]))) {
-                    isContained = false;
                     break;
                 }
+
+
+
             }
 
 
@@ -223,6 +231,15 @@ public class NiermanJagadishAlgorithm {
         }
 
         return levelSubtrees;
+    }
+
+    public String getMinimumOperation(int min, int update, int delete, int insert, Node nodeA, Node nodeB) {
+
+
+        if (min == delete) return "delete(" + String.valueOf(nodeA) + ")";
+        if (min == insert) return "insert(" + String.valueOf(nodeA) + ")";
+        else return "update(" + String.valueOf(nodeA) + ", " + String.valueOf(nodeB) + ")";
+
     }
 }
 
