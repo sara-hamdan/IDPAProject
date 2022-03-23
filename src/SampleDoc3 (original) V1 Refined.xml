@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrdinaryIssuePage>
+
+   <volume>31</volume>
+   <number>4</number>
+   <month>December</month>
+   <year>2002</year>
+   <notes>
+      <note>
+         <toNote>
+    	       <title>Chair's</title>
+            <title>Message</title>
+         </toNote>
+         <otherSources>
+            <toSource>
+               <href>http://www.acm.org/sigmod/record/issues/0212/tamer.pdf</href>
+          	    <format>PDF</format>
+            </toSource>
+         </otherSources>
+      </note>
+
+      <note>
+         <toNote>
+    	       <title>Editor's</title>
+            <title>Notes</title>
+         </toNote>
+         <otherSources>
+            <toSource>
+               <href>http://www.acm.org/sigmod/record/issues/0212/ednotes.pdf</href>
+          	    <format>PDF</format>
+            </toSource>
+            <toSource>
+               <href>http://www.acm.org/sigmod/record/issues/0212/ednotes.ps</href>
+          	    <format>Postscript</format>
+            </toSource>
+         </otherSources>
+      </note>
+
+      <note>
+         <toNote>
+    	       <title>Rights</title>
+            <title>of</title>
+            <title>TODS</title>
+            <title>Readers,</title>
+            <title>Authors</title>
+            <title>and</title>
+            <title>Reviewers</title>
+         </toNote>
+         <otherSources>
+            <toSource>
+               <href>http://www.acm.org/sigmod/record/issues/0212/RickSnodgrass.pdf</href>
+          	    <format>PDF</format>
+            </toSource>
+         </otherSources>
+      </note>
+
+      <note>
+         <toNote>
+            <href>http://www.acm.org/sigmod/sigmodinfo/index.htmlofficers</href>
+    	       <title>SIGMOD</title>
+            <title>Officers,</title>
+            <title>Committees</title>
+            <title>and</title>
+            <title>Awards</title>
+         </toNote>
+         <otherSources>
+            <toSource>
+               <href>http://www.acm.org/sigmod/record/issues/0212/Page1.pdf</href>
+          	    <format>PDF</format>
+            </toSource>
+         </otherSources>
+      </note>
+
+   </notes>
+   <sections>
+      <section>
+         <sectionName>
+            <sectionNumber>01</sectionNumber>Special Section on Semantic Web and Data Management</sectionName>
+         <articles>
+
+     
+            <article>
+               <title>Conceptual</title>
+               <title>Model</title>
+               <title>of</title>
+               <title>Web</title>
+               <title>Service</title>
+               <title>Reputation</title>
+               <authors>
+                  <author>
+                     <AuthorPosition>00</AuthorPosition>E.M. Maximilien</author>
+                  <author>
+                     <AuthorPosition>01</AuthorPosition>M. Singh</author>
+               </authors>
+               <availableSources>
+                      <toAvailableSource>
+                     <href>http://www.acm.org/sigmod/record/issues/0212/SPECIAL/6.Maximilien-Singh.pdf</href>
+                      	<format>PDF</format>
+                      </toAvailableSource>
+               </availableSources>
+            </article>
+
+            <article>
+               <title>The</title>
+               <title>p</title>
+               <title>Operator:</title>
+               <title>Discovering</title>
+               <title>and</title>
+               <title>Ranking</title>
+               <title>Associations</title>
+               <title>on</title>
+               <title>the</title>
+               <title>Semantic</title>
+               <title>Web</title>
+               <authors>
+                  <author>
+                     <AuthorPosition>00</AuthorPosition>K. Anyanwu</author>
+                  <author>
+                     <AuthorPosition>01</AuthorPosition>A. Sheth</author>
+               </authors>
+               <availableSources>
+                      <toAvailableSource>
+                     <href>http://www.acm.org/sigmod/record/issues/0212/SPECIAL/7.Sheth.pdf</href>
+                      	<format>PDF</format>
+                      </toAvailableSource>
+               </availableSources>
+            </article>
+            <article>
+               <title>Emergent</title>
+               <title>Semantics</title>
+               <title>and</title>
+               <title>the</title>
+               <title>Multimedia</title>
+               <title>Semantic</title>
+               <title>Web</title>
+               <authors>
+                  <author>
+                     <AuthorPosition>00</AuthorPosition>W.I. Grosky</author>
+                  <author>
+                     <AuthorPosition>01</AuthorPosition>D.V. Sreenath</author>
+                  <author>
+                     <AuthorPosition>02</AuthorPosition>F. Fotouhi</author>
+               </authors>
+               <availableSources>
+                      <toAvailableSource>
+                     <href>http://www.acm.org/sigmod/record/issues/0212/SPECIAL/9.Gorsky.pdf</href>
+                      	<format>PDF</format>
+                      </toAvailableSource>
+               </availableSources>
+            </article>
+
+            <article>
+               <title>Querying</title>
+               <title>Multiple</title>
+               <title>Bioinformatics</title>
+               <title>Data</title>
+               <title>Sources:</title>
+               <title>Can</title>
+               <title>Semantic</title>
+               <title>Web</title>
+               <title>Research</title>
+               <title>Help?</title>
+               <authors>
+                  <author>
+                     <AuthorPosition>00</AuthorPosition>David Buttler</author>
+                  <author>
+                     <AuthorPosition>01</AuthorPosition>Matthew Coleman1</author>
+               </authors>
+               <availableSources>
+                      <toAvailableSource>
+                     <href>http://www.acm.org/sigmod/record/issues/0212/SPECIAL/10.Buttler.pdf</href>
+                      	<format>PDF</format>
+                      </toAvailableSource>
+               </availableSources>
+            </article>
+
+            <article>
+               <title>The</title>
+               <title>Grid:</title>
+               <title>An</title>
+               <title>Application</title>
+               <title>of</title>
+               <title>the</title>
+               <title>Semantic</title>
+               <title>Web</title>
+               <authors>
+                  <author>
+                     <AuthorPosition>00</AuthorPosition>C. Goble</author>
+                  <author>
+                     <AuthorPosition>01</AuthorPosition>D. De Rouce</author>
+                  <author>
+                     <AuthorPosition>02</AuthorPosition>Terence Critchlow1</author> 
+                  <author>
+                     <AuthorPosition>03</AuthorPosition>Renato Fileto</author>
+                  <author>
+                     <AuthorPosition>04</AuthorPosition>Wei Han</author>
+                  <author>
+                     <AuthorPosition>05</AuthorPosition>Ling Liu</author>
+                  <author>
+                     <AuthorPosition>06</AuthorPosition>Calton Pu</author> 
+                  <author>
+                     <AuthorPosition>07</AuthorPosition>Daniel Rocco</author> 
+                  <author>
+                     <AuthorPosition>08</AuthorPosition>Li Xiong</author> 
+  
+               </authors>
+               <availableSources>
+                      <toAvailableSource>
+                     <href>http://www.acm.org/sigmod/record/issues/0212/SPECIAL/11.Goble.pdf</href>
+                      	<format>PDF</format>
+                      </toAvailableSource>
+               </availableSources>
+            </article>
+	
+
+	           <article>
+               <title>Guest</title>
+               <title>Editor's</title>
+               <title>Introduction</title>
+               <authors>
+                  <author>
+                     <AuthorPosition>00</AuthorPosition>R. Meersman</author>
+                  <author>
+                     <AuthorPosition>01</AuthorPosition>A. Sheth</author>  
+               </authors>
+               <availableSources>
+                      <toAvailableSource>
+                     <href>http://www.acm.org/sigmod/record/issues/0212/SPECIAL/1.Special_Issue_Overview2.pdf</href>
+                      	<format>PDF</format>
+                      </toAvailableSource>
+               </availableSources>
+            </article>
+
+
+         </articles>
+      </section>
+
+      <section>
+         <sectionName>
+            <sectionNumber>02</sectionNumber>Book Reviews</sectionName>
+         <articles>
+            <article>
+               <title>Introduction</title>
+               <authors>
+                  <author>
+                     <AuthorPosition>00</AuthorPosition>Karl Aberer</author>
+               </authors>
+               <availableSources>
+                      <toAvailableSource>
+                     <href>http://www.acm.org/sigmod/record/issues/0212/B0.Intro.pdf</href>
+                      	<format>PDF</format>
+                      </toAvailableSource>
+               </availableSources>
+            </article>
+         </articles>
+      </section>
+
+      <section>
+         <sectionName>
+            <sectionNumber>03</sectionNumber>Distinguished Database Profiles</sectionName>
+         <articles>
+            <article>
+               <title>Interview</title>
+               <title>with</title>
+               <title>David</title>
+               <title>Maier</title>
+               <authors>
+                  <author>
+                     <AuthorPosition>00</AuthorPosition>Marianne Winslett</author>
+               </authors>
+               <availableSources>
+                      <toAvailableSource>
+                     <href>http://www.acm.org/sigmod/record/issues/0212/maier-oct-16.pdf</href>
+                      	<format>PDF</format>
+                      </toAvailableSource>
+               </availableSources>
+            </article>
+
+         </articles>
+      </section>
+
+      <section>
+         <sectionName>
+            <sectionNumber>04</sectionNumber>Database Principles</sectionName>
+         <articles>
+            <article>
+               <title>Parameterized</title>
+               <title>Complexity</title>
+               <title>for</title>
+               <title>the</title>
+               <title>Database</title>
+               <title>Theorist</title>
+               <authors>
+                  <author>
+                     <AuthorPosition>00</AuthorPosition>Martin Grohe</author>
+               </authors>
+               <availableSources>
+                      <toAvailableSource>
+                     <href>http://www.acm.org/sigmod/record/issues/0212/libkin.pdf</href>
+                      	<format>PDF</format>
+                      </toAvailableSource>
+                      <toAvailableSource>
+                     <href>http://www.acm.org/sigmod/record/issues/0212/libkin.ps</href>
+                      	<format>Postscript</format>
+                      </toAvailableSource>
+               </availableSources>
+            </article>
+
+         </articles>
+      </section>
+
+      <section>
+         <sectionName>
+            <sectionNumber>05</sectionNumber>Quality Papers</sectionName>  
+         <articles>
+            <article>
+               <title>Reminiscences</title>
+               <title>on</title>
+               <title>Influential</title>
+               <title>Papers</title>
+               <authors>
+                  <author>
+                     <AuthorPosition>00</AuthorPosition>A. Aho</author>
+                  <author>
+                     <AuthorPosition>01</AuthorPosition>A. Ailamaki</author>
+               </authors>
+               <availableSources>
+                      <toAvailableSource>
+                     <href>http://www.acm.org/sigmod/record/issues/0212/KenRoss.pdf</href>
+            
+                      </toAvailableSource>
+               </availableSources>
+            </article>
+
+         </articles>
+      </section>
+
+      <section>
+         <sectionName>
+            <sectionNumber>06</sectionNumber>Reports</sectionName>
+         <articles>
+            <article>
+               <title>Amicalola</title>
+               <title>Report:</title>
+               <title>Database</title>
+               <title>and</title>
+               <title>Information</title>
+               <title>System</title>
+               <title>Research</title>
+               <title>Challenges</title>
+               <title>and</title>
+               <title>Opportunities</title>
+               <title>in</title>
+               <title>Semantic</title>
+               <title>Web</title>
+               <title>and</title>
+               <title>Enterprises</title>
+
+               <availableSources>
+                      <toAvailableSource>
+                     <href>http://www.acm.org/sigmod/record/issues/0212/R1.Amicalola_Final_Report.pdf</href>
+                      	<format>PDF</format>
+                      </toAvailableSource>
+               </availableSources>
+            </article>
+
+            <article>
+               <title>Report</title>
+               <title>on</title>
+               <title>the</title>
+               <title>EDBT'02</title>
+               <title>Panel</title>
+               <title>on</title>
+               <title>Scientific</title>
+               <title>Data</title>
+               <title>Integration</title>
+               <authors>
+                  <author>
+                     <AuthorPosition>00</AuthorPosition>O. Boucelma</author>
+
+                  <author>
+                     <AuthorPosition>02</AuthorPosition>C. Goble</author>
+               </authors>
+               <availableSources>
+                      <toAvailableSource>
+                     <href>http://www.acm.org/sigmod/record/issues/0212/R2.edbtFinal.pdf</href>
+                      	<format>PDF</format>
+                      </toAvailableSource>
+               </availableSources>
+            </article>
+
+         </articles>
+      </section>
+      <section>
+         <sectionName>
+            <sectionNumber>08</sectionNumber>Research Centers</sectionName>
+         <articles>
+            <article>
+               <title>Research</title>
+               <title>in</title>
+               <title>Information</title>
+               <title>Managment</title>
+               <title>at</title>
+               <title>Dublin</title>
+               <title>City</title>
+               <title>University</title>
+               <authors>
+                  <author>
+                     <AuthorPosition>00</AuthorPosition>Mark Roantree and Alan F. Smeaton</author>
+                  <author>
+                     <AuthorPosition>01</AuthorPosition>O. Boucelma</author>   
+               </authors>
+               <potentialSources>  
+                      <toAvailableSource>
+                     <href>http://www.acm.org/sigmod/record/issues/0212/AmitCenterRep-im1.pdf</href>
+                      	<format>PDF</format>
+                      </toAvailableSource>
+               </potentialSources>
+            </article>
+
+         </articles>
+      </section>
+
+   </sections>
+</OrdinaryIssuePage>

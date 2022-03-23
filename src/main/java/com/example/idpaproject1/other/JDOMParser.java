@@ -3,6 +3,7 @@ package com.example.idpaproject1.other;
 import com.example.idpaproject1.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;
@@ -54,5 +55,18 @@ public class JDOMParser {
         }
 
             return document;
+    }
+
+    public static void writeXml(Document doc,
+                                OutputStream output)
+            throws TransformerException {
+
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        DOMSource source = new DOMSource(doc);
+        StreamResult result = new StreamResult(output);
+
+        transformer.transform(source, result);
+
     }
 }

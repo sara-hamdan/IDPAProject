@@ -3,14 +3,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.idpaproject1.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TextArea?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="571.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<children>
+    <TextArea fx:id="TextArea1" layoutX="14.0" layoutY="14.0" prefHeight="290.0" prefWidth="256.0" />
+    <TextArea fx:id="TextArea2" layoutX="430.0" layoutY="11.0" prefHeight="279.0" prefWidth="271.0" />
+    <Button fx:id="show" layoutX="76.0" layoutY="331.0" mnemonicParsing="false" onAction="#getfile" text="Show 1st XML file" />
+    <Button layoutX="546.0" layoutY="331.0" mnemonicParsing="false" text="Show 2nd XML file" />
+    <TextArea layoutX="254.0" layoutY="350.0" prefHeight="200.0" prefWidth="200.0" />
+</children>
+</AnchorPane>

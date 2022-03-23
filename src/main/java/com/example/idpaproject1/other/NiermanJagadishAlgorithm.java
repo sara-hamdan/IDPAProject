@@ -83,17 +83,21 @@ public class NiermanJagadishAlgorithm {
         int degreeA = getDegree(parentNodeA, documentA);
         int degreeB = getDegree(parentNodeB, documentB);
 
+        stringBuilder = new StringBuilder("");
+
         int[][] editDistanceMatrix = new int[degreeA+1][degreeB+1];
         editDistanceMatrix[0][0] = costUpdate(parentNodeA, parentNodeB);
 
+        if (editDistanceMatrix[0][0] != 0) {
+
+            stringBuilder.append("update(" + String.valueOf(parentNodeA) + ", " + String.valueOf(parentNodeB) + ")");
+        }
         ArrayList<Node> levelSubtreesArrayA = getLevelSubtrees(parentNodeA, documentA);
         ArrayList<Node> levelSubtreesArrayB = getLevelSubtrees(parentNodeB, documentB);
         getLevelSubtrees(parentNodeB, documentB);
         for (int i = 1; i <= degreeA; i++) {
 
-            for (int j = 0; j < levelSubtreesArrayA.size() ; j++) {
-                System.out.println(levelSubtreesArrayA.get(j));
-            }
+
             editDistanceMatrix[i][0] = editDistanceMatrix[i-1][0] + getCost(levelSubtreesArrayA.get(i-1), documentB);
 
         }
@@ -103,7 +107,7 @@ public class NiermanJagadishAlgorithm {
             editDistanceMatrix[0][j] = editDistanceMatrix[0][j-1] + getCost(levelSubtreesArrayB.get(j-1), documentA);
         }
 
-        stringBuilder = new StringBuilder("");
+
         for (int i = 1; i <= degreeA; i++) {
             for (int j = 1; j <= degreeB; j++) {
                 
@@ -114,7 +118,10 @@ public class NiermanJagadishAlgorithm {
 
                 editDistanceMatrix[i][j] = min(update, min(delete, insert));
 
-                String minOperation = getMinimumOperation(editDistanceMatrix[i][j], update, delete, insert, levelSubtreesArrayA.get(i-1), levelSubtreesArrayB.get(j-1));
+                int currentLevelA = getHeightDocument(documentA) - degreeA + 1;
+                int currentLevelB = getHeightDocument(documentB) - degreeB + 1;
+
+                String minOperation = getMinimumOperation(editDistanceMatrix[i][j], update, delete, insert, levelSubtreesArrayA.get(i-1), levelSubtreesArrayB.get(j-1), documentA, documentB, currentLevelA, currentLevelB);
 
                 if (editDistanceMatrix[i][j] != 0) {
                     stringBuilder.append(minOperation + " ");
@@ -148,14 +155,14 @@ public class NiermanJagadishAlgorithm {
 
             for (int j = 0; j < min(subtreesListDoc1.get(i).length, arrayOfNodes.length); j++) {
 
-                if (j == min(subtreesListDoc1.get(i).length, arrayOfNodes.length) - 1) return true;
+
 
                 if (!String.valueOf(arrayOfNodes[j]).equals(String.valueOf(subtreesListDoc1.get(i)[j]))) {
                     break;
                 }
 
 
-
+                if (j == min(subtreesListDoc1.get(i).length, arrayOfNodes.length) - 1) return true;
             }
 
 
@@ -169,16 +176,16 @@ public class NiermanJagadishAlgorithm {
     public int getCost(Node node, Document document) {
 
 
-        if (!node.hasChildNodes()) return 1;
+        if (!node.hasChildNodes()) return 2;
 
         ArrayList<Node[]> arrayList = new ArrayList<>();
         DocumentTraversal traversal = (DocumentTraversal) document;
         TreeWalker treeWalker = traversal.createTreeWalker(document.getDocumentElement(), NodeFilter.SHOW_ELEMENT, null, true);
         arrayList = getSubtrees(document, arrayList, treeWalker);
-        if (isContainedIn(node, arrayList)) return 1;
+        if (isContainedIn(node, arrayList)) return 2;
         else {
 
-            int cost = 1 + node.getChildNodes().getLength();
+            int cost = 1 + node.getChildNodes().getLength()*2;
 
             return cost;
         }
@@ -233,14 +240,50 @@ public class NiermanJagadishAlgorithm {
         return levelSubtrees;
     }
 
-    public String getMinimumOperation(int min, int update, int delete, int insert, Node nodeA, Node nodeB) {
+    public String getMinimumOperation(int min, int update, int delete, int insert, Node nodeA, Node nodeB, Document documentA, Document documentB, int currentLevelA, int currentLevelB) {
 
 
-        if (min == delete) return "delete(" + String.valueOf(nodeA) + ")";
-        if (min == insert) return "insert(" + String.valueOf(nodeA) + ")";
-        else return "update(" + String.valueOf(nodeA) + ", " + String.valueOf(nodeB) + ")";
+        if (min == delete) {
+
+            if(!nodeA.hasChildNodes()) return "delete(" + currentLevelA + ", "+ String.valueOf(nodeA) + nodeA.getTextContent()+ ")";
+
+            NodeList nodeList = nodeA.getChildNodes();
+            Node[] arrayOfNodes = new Node[nodeList.getLength() + 1];
+            arrayOfNodes[0] = nodeA;
+            StringBuilder stringBuilder = new StringBuilder(String.valueOf(arrayOfNodes[0]) + arrayOfNodes[0].getTextContent()+ " ");
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                arrayOfNodes[i + 1] = nodeList.item(i);
+                stringBuilder.append(arrayOfNodes[i + 1] + arrayOfNodes[i+1].getTextContent()  + " ");
+            }
+                return "delete(" + currentLevelA + ", " + stringBuilder + ")";
+        }
+        if (min == insert)  {
+
+            if(!nodeA.hasChildNodes()) return "insert(" + currentLevelB + ", " + String.valueOf(nodeA) + nodeB.getTextContent() + ")";
+
+            NodeList nodeList = nodeB.getChildNodes();
+            Node[] arrayOfNodes = new Node[nodeList.getLength() + 1];
+            arrayOfNodes[0] = nodeA;
+            StringBuilder stringBuilder = new StringBuilder(String.valueOf(arrayOfNodes[0]) + arrayOfNodes[0].getTextContent()+ " ");
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                arrayOfNodes[i + 1] = nodeList.item(i);
+                stringBuilder.append(arrayOfNodes[i + 1] + arrayOfNodes[i+1].getTextContent() + " ");
+            }
+            return "insert(" +  currentLevelB + ", " + stringBuilder + ")";
+        }
+        else return "update(" + String.valueOf(nodeA) + ", " +  currentLevelA + ", " + String.valueOf(nodeB)+ ", "  + currentLevelB +  ")";
+
 
     }
+
+
+
+
+
+
+
+
+
 }
 
 
